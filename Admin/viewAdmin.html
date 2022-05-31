@@ -19,16 +19,16 @@
       nomodule=""
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
-    <title>View Profile</title>
+    <title>Admin Page</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="sidebar">
             <div class="profile">
                 <!-- make the image responsive -->
-                <img src="./images/stephen.jpg" alt="user-image">
-                <h3 class="heading-tertiary">Stephen John Andres</h3>
-                <p>Client</p>
+                <img src="./levi.jpg" alt="user-image">
+                <h3 class="heading-tertiary">Levi Adina</h3>
+                <p>Admin</p>
             </div>
             <ul>
                 <li class="selectedLink" name="profile">
@@ -49,12 +49,6 @@
                         <span class="item">Logout</span>
                     </a>
                 </li>
-                <li name="qr">
-                    <a href="#">
-                        <span class="icon"><ion-icon name="qr-code-outline"></ion-icon></span>
-                        <span class="item">Show QR Code</span>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="section">
@@ -66,14 +60,10 @@
                 </div>
             </div>
             <div class="card active home" data-profile>
-                <div class="title-user">User Information</div>
+                <div class="title-user">Administrator Information</div>
                 <div class="content">
                     <form action="">
                         <div class="user-details">
-                            <div class="input-box-width">
-                                <span class="details">Client Number</span>
-                                <input type="text">
-                            </div>
                             <div class="input-box">
                                 <span class="details">Last Name</span>
                                 <input type="text">
@@ -125,6 +115,7 @@
                             <th scope="col">Date</th>
                             <th scope="col">Violator</th>
                             <th scope="col">Violations</th>
+                            <th scope="col">Offense</th>
                             <th scope="col">Enforcer</th>
                         </tr>
                     </thead>
@@ -133,14 +124,11 @@
                             <td data-label="Date">06-01-2022</td>
                             <td data-label="Violator">Levi Adina</td>
                             <td data-label="Violations">Beating the redlight</td>
+                            <td data-label="Offense">1st Offense</td>
                             <td data-label="Enforcer">Karl Erbin Viernes</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="card qr" data-qr>
-                <div class="title">QR code</div>
-                <div class="content">Content Goes Here</div>
             </div>
         </div>
     </div>
