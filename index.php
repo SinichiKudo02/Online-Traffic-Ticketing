@@ -22,7 +22,7 @@
 </head>
 <body>
   <?php
-  include "db/connect.php";
+  include "php/auth.php";
   ?>
     <main>
         <section class="section-hero">
@@ -33,25 +33,13 @@
                       Online Traffic Ticketing Portal
                   </h1>
                 </div>
-                <form action="">
-                  <div class="check">
-                    <label class="form-control">
-                      <input type="radio" name="checkbox"  />
-                        Client
-                    </label>
-                    <label class="form-control">
-                      <input type="radio" name="checkbox" checked/>
-                        Admin
-                    </label>
-                    <label class="form-control">
-                      <input type="radio" name="checkbox" />
-                      Enforcer
-                    </label>
-                  </div>
+                <form action="" method="POST">
+                  <
                   <div class="cta-form">
                     <div>
                       <label for="number">Client Number/Username:</label>
                       <input 
+                      name="username"
                       id="client"
                       type="text"
                       required
@@ -60,12 +48,18 @@
                     <div>
                       <label for="password">Password:</label>
                       <input
+                        name="password"
                         id="password"
                         type="password"
                         required
                       />
+                      
                     </div>
-                    <button class="btn btn--form" onclick="login()">Log in</button>
+                    <div>
+                      <?php include("php/errors.php");?>
+                    </div>
+                    
+                    <button type="submit" name="login" class="btn btn--form">Log in</button>
                     </div>
                   </div>
                 </form>
