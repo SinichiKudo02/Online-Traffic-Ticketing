@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
@@ -34,7 +34,7 @@
                   </h1>
                 </div>
                 <form action="" method="POST">
-                  <
+                  
                   <div class="cta-form">
                     <div>
                       <label for="number">Client Number/Username:</label>
@@ -43,7 +43,7 @@
                       id="client"
                       type="text"
                       required
-                      >
+                      />
                     </div>
                     <div>
                       <label for="password">Password:</label>
@@ -56,7 +56,17 @@
                       
                     </div>
                     <div>
-                      <?php include("php/errors.php");?>
+                      <?php 
+                      $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                    
+                      if(strpos($url, "login=expired") == true){
+                        echo "<h1 class='error'> Please Login </h1>";
+                      }
+
+                      elseif(strpos($url, "login=incorrect") == true){
+                        echo "<h1 class='error'> Wrong username/password combination! </h1>";
+                      }
+                      ?>
                     </div>
                     
                     <button type="submit" name="login" class="btn btn--form">Log in</button>

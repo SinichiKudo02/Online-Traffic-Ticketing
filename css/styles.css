@@ -18,6 +18,11 @@ body{
 }
 
 
+.error{
+    color: red;
+    font-size:x-large;
+    padding-bottom: 15px;
+}
 
 /* Section Hero */
 .section-hero{
@@ -418,4 +423,6 @@ table th {
       border-bottom: 0;
     }
   }
+
+
 
