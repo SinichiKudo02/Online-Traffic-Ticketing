@@ -28,7 +28,7 @@
             <div class="profile">
                 <!-- make the image responsive -->
                 
-                <img src="<?php echo $fname ?>.jpg" alt="user-image">
+                <img src="../images/<?php echo $fname ?>.jpg" alt="user-image">
                 <h3 class="heading-tertiary"><?php echo $fname . " " . $lname;?></h3>
                 <p>Admin</p>
             </div>

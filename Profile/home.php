@@ -22,12 +22,13 @@
     <title>View Profile</title>
 </head>
 <body>
+    <?php include('../php/get_profile.php')?>
     <div class="wrapper">
         <div class="sidebar">
             <div class="profile">
                 <!-- make the image responsive -->
-                <img src="./images/stephen.jpg" alt="user-image">
-                <h3 class="heading-tertiary">Stephen John Andres</h3>
+                <img src="../images/<?php echo $fname ?>.jpg" alt="user-image">
+                <h3 class="heading-tertiary"><?php echo $fname . " " . $lname?> </h3>
                 <p>Client</p>
             </div>
             <ul>
@@ -43,12 +44,14 @@
                         <span class="item">View Violations</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="item">Logout</span>
-                    </a>
-                </li>
+                <form id="logout" method="post">
+                    <li >
+                        <a >
+                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                            <button type="submit" name="logout">Logout</button>
+                        </a>
+                    </li>
+                </form>
                 <li name="qr">
                     <a href="#">
                         <span class="icon"><ion-icon name="qr-code-outline"></ion-icon></span>
@@ -72,15 +75,15 @@
                         <div class="user-details">
                             <div class="input-box-width">
                                 <span class="details">Client Number</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $username?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Last Name</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $lname?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">First Name</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $fname?>" readonly>
                             </div>
                         </div>
                     </form>
@@ -91,27 +94,27 @@
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Nationality</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $nationality?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Civil Status</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $civilstatus?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Date of Birth</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $dob?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Place of Birth</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $pob?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Educational Attainment</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $educ?>" readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">TIN</span>
-                                <input type="text">
+                                <input type="text" value="<?php echo $tin?>" readonly>
                             </div>
                         </div>
                     </form>
