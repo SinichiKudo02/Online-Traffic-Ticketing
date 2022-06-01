@@ -22,7 +22,7 @@
 </head>
 <body>
   <?php
-  include_once("db/connect.php")
+  include "db/connect.php";
   ?>
     <main>
         <section class="section-hero">
