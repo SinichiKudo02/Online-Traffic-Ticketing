@@ -87,10 +87,11 @@ body{
     text-transform: uppercase;
 }
 
+
 .cta-form{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:center;
     justify-content: center;
 }
 
@@ -116,6 +117,7 @@ body{
     border-radius: 9px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 
 .cta *:focus {
     outline: none;
@@ -484,18 +486,25 @@ table th {
   }
 
   /* Enforcer */
-  .icon-container{
-      text-align: center;
-      margin-bottom: 2rem;
-      margin-top: 7rem;
-  }
+
   .icon-qr{
-    font-size: 10rem;
+    font-size: 20px;
+    margin-left: 20px;
+    padding: 6px;
+    align-items: middle;
   }
 
   .btn--scan{
       text-transform: uppercase;
   }
+
+  .cta-form .qr{
+    
+    width: 23rem;
+    text-align: center;
+}
+
+
 
 
 

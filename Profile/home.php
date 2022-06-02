@@ -130,7 +130,7 @@
                             <th scope="col">Ticket No.</th>
                             <th scope="col">Date</th>
                             <th scope="col">Violations</th>
-                            <th scope="col">Enforcer</th>
+                            <th scope="col">Issuer</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -155,8 +155,15 @@
                             <td data-label="Ticket No."><?php echo $ticketID?></td>
                             <td data-label="Date"><?php echo $date?></td>
                             <td data-label="Violation"><?php echo $violation?></td>
-                            <td data-label="Enforcer"><?php echo $enforcerf . " " . $enforcerl?></td>
-                            <td data-label="Status"><?php echo $status?></td>
+                            <td data-label="Issuer"><?php echo $enforcerf . " " . $enforcerl?></td>
+                            <td data-label="Status"><?php if($status=="Unsettled"){?>
+                                                            <span style="color:red"> <?php  echo $status; ?></span>
+                                                    <?php } 
+                                                    
+                                                    else{?>
+                                                            <span style="color:green"> <?php  echo $status; ?></span>
+                                                            <?php }?>
+                                                                </td>
                         </tr>
                         <?php } ?>
                     </tbody>

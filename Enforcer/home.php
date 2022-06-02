@@ -22,7 +22,7 @@
     <title>Enforcer</title>
 </head>
 <body>
-  <?php include('../php/get_profile.php');?>
+  <?php include('../php/auth.php');  include('../php/get_profile.php');?>
     <main>
         <section class="section-hero">
             <div class="hero hero--enforcer">
@@ -38,22 +38,46 @@
                   
                   <div class="cta-form">
                     <div>
-                      <label for="violation">VIOLATIONS</label>
-                          <select id="violation" >
+                      <label for="violation">VIOLATION</label>
+                          <select id="violation" name='violation'>
                               <option value="">Please choose one option:</option>
+                              <option value="Obstruction">Obstruction</option>
+                              <option value="Beating the Red Light">Beating the Red Light</option>
+                              <option value="Colorum violation">Colorum violation</option>
+                              <option value="Axle overloading">Axle overloading</option>
+                              <option value="Driving w/o License">Driving w/o License</option>
+                              <option value="No Helmet">No Helmet</option>
+                              <option value="Reckless Driving">Reckless Driving</option>
+                              <option value="Unregistered vehicle">Unregistered vehicle</option>
+                              <option value="Trip-cutting">Trip-cutting</option>
+                              <option value="Smoke-belching">Smoke-belching</option>
                           </select>
                       </div>
                     <div>
-                      <div class="icon-container">
-                        <button onclick="hideShow()"><ion-icon class="icon-qr" name="qr-code-outline"></ion-icon></button>
-                      </div>
-                      <input
-                        type="text" id="qr"
-                        required
-                      />
+                      <label for="violation">CLIENT ID:</label>
+                      <input type="text" class='qr' id='qr' name='clientID'/>
+                      <button type="button" class="icon-qr" onclick="hideShow()"><ion-icon  name="qr-code"></ion-icon></button>
+                    </div>
+                    <div>
+                      <?php 
+                      $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                      
+                      if(strpos($url, "submit=none") == true){
+                        
+                        echo "<h1 class='error'>Violation/Client ID Missing!</h1>";
+                      }
+                      elseif(strpos($url, "submit=not") == true){
+                        echo "<h1 class='error'> Client not found! </h1>";
+                      }
+                      elseif(strpos($url, "submit=success") == true){
+                        echo "<h1 class='error'> Violation Recorded! </h1>";
+                      }
+
+                      
+                      ?>
                     </div>
                     <video id="preview"></video>
-                    <button type="submit" name="login" class="btn btn--form">Submit</button>
+                    <button type="submit" name="save" class="btn btn--form">Submit</button>
                       <button type="submit" name="logout" class="btn btn--log">
                           <ion-icon name="log-out-outline"></ion-icon>
                           Logout
@@ -65,34 +89,38 @@
         </section>
     </main>
 </body>
-<script src="js/script.js"></script>
-<!-- For the show and hide video -->
-<script>
-  function hideShow() {
-  var x = document.getElementById("preview");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
+
 <script type="text/javascript">
+var x = document.getElementById("preview");
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
 scanner.addListener('scan', function (content) {
-  console.log(content);
+  
   document.getElementById("qr").value = content;
+  x.style.display = "none";
+  scanner.stop()
   });
-  Instascan.Camera.getCameras().then(function (cameras) {
-  if (cameras.length > 0) {
-  scanner.start(cameras[1]);
+  
+
+  function hideShow() {
+  
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+    scanner.start(cameras[1]);
                             
-  } else {
+    } else {
     console.error('No cameras found.');
     }
   }).catch(function (e) {
     console.error(e);
   });
+
+  } else {
+    x.style.display = "none";
+    scanner.stop()
+  }
+}
 </script>
 
 </html>
