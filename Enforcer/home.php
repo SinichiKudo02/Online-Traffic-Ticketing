@@ -18,7 +18,7 @@
       nomodule=""
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="/instascan.min.js"></script>
+    <script src="../instascan.min.js"></script>
     <title>Enforcer</title>
 </head>
 <body>
@@ -50,12 +50,13 @@
                       <label>
                         <button class="btn btn--scan">Scan Client Number</button>
                       </label>
+                      <video id="preview"></video>
                       <input
                         type="text" id="qr"
                         required
                       />
                     </div>
-                    <video id="preview"></video>
+                    
                     <button type="submit" name="login" class="btn btn--form">Submit</button>
                     </div>
                   </div>
