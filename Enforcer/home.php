@@ -18,9 +18,11 @@
       nomodule=""
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="/instascan.min.js"></script>
     <title>Enforcer</title>
 </head>
 <body>
+  <?php include('../php/get_profile.php');?>
     <main>
         <section class="section-hero">
             <div class="hero hero--enforcer">
@@ -29,7 +31,7 @@
                       Enforcer:
                   </h1>
                   <h3 class="heading-tertiary-small">
-                      Stephen John Andres
+                  <?php echo $fname . " " . $lname?>
                   </h3>
                 </div>
                 <form action="" method="POST">
@@ -37,7 +39,7 @@
                   <div class="cta-form">
                     <div>
                       <label for="violation">VIOLATIONS</label>
-                          <select id="violation" required>
+                          <select id="violation" >
                               <option value="">Please choose one option:</option>
                           </select>
                       </div>
@@ -48,8 +50,10 @@
                       <label>
                         <button class="btn btn--scan">Scan Client Number</button>
                       </label>
+                      <video id="preview"></video>
+                      
                       <input
-                        type="text"
+                        type="text" id="qr"
                         required
                       />
                     </div>
@@ -62,4 +66,21 @@
     </main>
 </body>
 <script src="js/script.js"></script>
+<script type="text/javascript">
+let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+scanner.addListener('scan', function (content) {
+  console.log(content);
+  document.getElementById("qr").value = content;
+  });
+  Instascan.Camera.getCameras().then(function (cameras) {
+  if (cameras.length > 0) {
+  scanner.start(cameras[1]);
+                            
+  } else {
+    console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+</script>
 </html>
