@@ -22,7 +22,10 @@
     <title>View Profile</title>
 </head>
 <body>
-    <?php include('../php/get_profile.php')?>
+    <?php include('../php/get_profile.php');
+        include('../php/get_violation.php')
+    ?>
+    
     <div class="wrapper">
         <div class="sidebar">
             <div class="profile">
@@ -124,25 +127,47 @@
                 <table>
                     <thead>
                         <tr>
+                            <th scope="col">Ticket No.</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Violator</th>
                             <th scope="col">Violations</th>
                             <th scope="col">Enforcer</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if(mysqli_num_rows($result)==0){ ?>
+                        <tr>  
+                            <td colspan='5'><h2>-- No Records --</h2></td>
+                            
+                        </tr>  
+                            <?php } ?>
+                        
+                        <?php    
+                        while($row = mysqli_fetch_assoc($result)){
+                        $ticketID = $row['ticketID'];
+                        $date = $row['date'];
+                        $violation = $row['violation'];
+                        $enforcerf = $row['fname'];
+                        $enforcerl = $row['lname'];
+                        $status = $row['status'];
+                        ?>
                         <tr>
-                            <td data-label="Date">06-01-2022</td>
-                            <td data-label="Violator">Levi Adina</td>
-                            <td data-label="Violations">Beating the redlight</td>
-                            <td data-label="Enforcer">Karl Erbin Viernes</td>
+                            <td data-label="Ticket No."><?php echo $ticketID?></td>
+                            <td data-label="Date"><?php echo $date?></td>
+                            <td data-label="Violation"><?php echo $violation?></td>
+                            <td data-label="Enforcer"><?php echo $enforcerf . " " . $enforcerl?></td>
+                            <td data-label="Status"><?php echo $status?></td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
             <div class="card qr" data-qr>
                 <div class="title">QR code</div>
-                <div class="content">Content Goes Here</div>
+                <div class="content">
+
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?php echo $username?>" alt="">
+                </div>
             </div>
         </div>
     </div>

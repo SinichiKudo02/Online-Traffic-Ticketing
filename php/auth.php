@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
             header('location: Profile/home.php');
         }
         else if($type == "enforcer"){
-            header('location: home/home.php');
+            header('location: Enforcer/home.php');
         }
 
         

@@ -22,7 +22,9 @@
     <title>Admin Page</title>
 </head>
 <body>
-    <?php include('../php/get_profile.php')?>
+    <?php include('../php/get_profile.php');
+          include('../php/get_all_violation.php')
+    ?>
     <div class="wrapper">
         <div class="sidebar">
             <div class="profile">
@@ -115,21 +117,47 @@
                 <table>
                     <thead>
                         <tr>
+                            <th scope="col">Ticket No.</th>
                             <th scope="col">Date</th>
                             <th scope="col">Violator</th>
                             <th scope="col">Violations</th>
-                            <th scope="col">Offense</th>
-                            <th scope="col">Enforcer</th>
+                            <th scope="col">Issuer</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if(mysqli_num_rows($result)==0){ ?>
+                        <tr>  
+                            <td colspan='5'><h2>-- No Records --</h2></td>
+                            
+                        </tr>  
+                            <?php } ?>
+                        
+                        <?php    
+                        while($row = mysqli_fetch_assoc($result)){
+                        $ticketID = $row['ticketID'];
+                        $date = $row['date'];
+                        $violation = $row['violation'];
+                        $vf = $row['fname'];
+                        $vl = $row['lname'];
+                        $status = $row['status'];
+                        $issuer = $row['enforcerID'];
+                        
+                        $query = "SELECT * FROM userinfo WHERE userID='$issuer'";
+                        $res = mysqli_query($conn, $query);
+                        $row = mysqli_fetch_assoc($res);
+                        $ef = $row['fname'];
+                        $el = $row['lname'];
+                        ?>
                         <tr>
-                            <td data-label="Date">06-01-2022</td>
-                            <td data-label="Violator">Levi Adina</td>
-                            <td data-label="Violations">Beating the redlight</td>
-                            <td data-label="Offense">1st Offense</td>
-                            <td data-label="Enforcer">Karl Erbin Viernes</td>
+                            <td data-label="Ticket No."><?php echo $ticketID?></td>
+                            <td data-label="Date"><?php echo $date?></td>
+                            <td data-label="Violator"><?php echo $vf . " " . $vl?></td>
+                            <td data-label="Violation"><?php echo $violation?></td>
+                            <td data-label="Issuer"><?php echo $ef . " " . $el?></td>
+                            <td data-label="Status"><?php echo $status?></td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
