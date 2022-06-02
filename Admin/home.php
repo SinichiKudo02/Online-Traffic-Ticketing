@@ -47,12 +47,10 @@
                 
                 </li>
                 <form id="logout" method="post">
-                    <li >
-                        <a >
-                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                            <button type="submit" name="logout">Logout</button>
-                        </a>
-                    </li>
+                  <ion-icon name="log-out-outline"></ion-icon>
+                    <button type="submit" name="logout" class="btn btn--logout">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                        Logout</button>
                 </form>
             </ul>
         </div>

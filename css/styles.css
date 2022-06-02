@@ -39,13 +39,15 @@ body{
     align-items: center;
 }
 
+
 .logo{
     height: 30rem;
     width: auto;
 }
 
 .heading-primary,
-.heading-tertiary{
+.heading-tertiary,
+.heading-tertiary-small{
     font-weight: 700;
     color: #333;
     letter-spacing: -0.5px;
@@ -56,6 +58,20 @@ body{
     line-height: 1.05;
     margin-bottom: 3.2rem;
     text-transform: uppercase;
+}
+
+.heading-primary-small{
+    font-size: 3.2rem;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.heading-tertiary-small{
+    margin-bottom: 8rem;
 }
 
 .check{
@@ -124,6 +140,17 @@ body{
   text-transform: uppercase;
 }
 
+/* Make the btn--logout in the bottom part */
+.btn--logout{
+    background-color: #45260a;
+    color: #fdf2e9;
+    padding: 1.2rem;
+    text-transform: uppercase;
+    position: absolute;
+    right: 6.5rem;
+    bottom: 10rem;
+}
+
 /* View Profile */
 .wrapper .sidebar{
     background: #eb984e;
@@ -146,6 +173,12 @@ body{
     line-height: 1.2;
     color: #555;
     margin: 1rem 0 5px;
+}
+
+.heading-tertiary-small{
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #555;
 }
 
 .profile img{
@@ -422,6 +455,20 @@ table th {
     table td:last-child {
       border-bottom: 0;
     }
+  }
+
+  /* Enforcer */
+  .icon-container{
+      text-align: center;
+      margin-bottom: 2rem;
+      margin-top: 7rem;
+  }
+  .icon-qr{
+    font-size: 10rem;
+  }
+
+  .btn--scan{
+      text-transform: uppercase;
   }
 
 

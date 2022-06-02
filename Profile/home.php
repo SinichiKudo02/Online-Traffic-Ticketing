@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css?v=<?php echo time(); ?>">
    
     <script
       type="module"
@@ -44,14 +44,6 @@
                         <span class="item">View Violations</span>
                     </a>
                 </li>
-                <form id="logout" method="post">
-                    <li >
-                        <a >
-                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                            <button type="submit" name="logout">Logout</button>
-                        </a>
-                    </li>
-                </form>
                 <li name="qr">
                     <a href="#">
                         <span class="icon"><ion-icon name="qr-code-outline"></ion-icon></span>
@@ -59,6 +51,13 @@
                     </a>
                 </li>
             </ul>
+            <form id="logout" method="post">
+            <ion-icon name="log-out-outline"></ion-icon>
+                    <button type="submit" name="logout" class="btn btn--logout">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                        Logout
+                    </button>
+            </form>
         </div>
         <div class="section">
             <div class="top_navbar">
