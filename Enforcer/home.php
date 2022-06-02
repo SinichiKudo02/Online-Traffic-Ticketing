@@ -45,19 +45,19 @@
                       </div>
                     <div>
                       <div class="icon-container">
-                        <ion-icon class="icon-qr" name="qr-code-outline"></ion-icon>
+                        <button onclick="hideShow()"><ion-icon class="icon-qr" name="qr-code-outline"></ion-icon></button>
                       </div>
-                      <label>
-                        <button class="btn btn--scan">Scan Client Number</button>
-                      </label>
-                      <video id="preview"></video>
                       <input
                         type="text" id="qr"
                         required
                       />
                     </div>
-                    
+                    <video id="preview"></video>
                     <button type="submit" name="login" class="btn btn--form">Submit</button>
+                      <button type="submit" name="logout" class="btn btn--log">
+                          <ion-icon name="log-out-outline"></ion-icon>
+                          Logout
+                    </div>
                     </div>
                   </div>
                 </form>
@@ -66,6 +66,17 @@
     </main>
 </body>
 <script src="js/script.js"></script>
+<!-- For the show and hide video -->
+<script>
+  function hideShow() {
+  var x = document.getElementById("preview");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
 <script type="text/javascript">
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
 scanner.addListener('scan', function (content) {
@@ -83,4 +94,5 @@ scanner.addListener('scan', function (content) {
     console.error(e);
   });
 </script>
+
 </html>

@@ -138,6 +138,14 @@ body{
   color: #fdf2e9;
   padding: 1.2rem;
   text-transform: uppercase;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.btn--log{
+    color: red;
+    background-color: #45260a;
+    padding: 1.2rem;
+    text-transform: uppercase;
 }
 
 /* Make the btn--logout in the bottom part */
@@ -488,6 +496,7 @@ table th {
   .btn--scan{
       text-transform: uppercase;
   }
+
 
 
 
