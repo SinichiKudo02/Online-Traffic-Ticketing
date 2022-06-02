@@ -163,10 +163,9 @@
                 </table>
             </div>
             <div class="card qr" data-qr>
-                <div class="title">QR code</div>
-                <div class="content">
-
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?php echo $username?>" alt="">
+                <!-- <div class="title">QR code</div> -->
+                <div class="content content-center">
+                    <img class="qr-center" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?php echo $username?>" alt="">
                 </div>
             </div>
         </div>

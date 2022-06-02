@@ -328,6 +328,17 @@ form .user-details .input-box{
     width: calc(100% / 2 - 2rem);
 }
 
+.content-center{
+    margin-top: 15rem;
+}
+
+.qr-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
 
 
 form .input-box span.details,
@@ -374,6 +385,13 @@ form .category{
 .user-details::-webkit-scrollbar{
     width: 5px;
 }
+
+.qr-center{
+    display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
 }
 
 @media(max-width: 459px){
